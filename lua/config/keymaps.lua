@@ -38,10 +38,25 @@ function RunTestForCurrentFile()
 end
 
 vim.keymap.set("n", "<Leader>tt", ":lua RunTestForCurrentFile() <CR>", { desc = "Run test for current file" })
-vim.keymap.set("t", "<C-j><C-k>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { desc = "Toggle FTerm" })
 
-vim.keymap.set("n", "<C-j><C-k>", ':lua require("FTerm").toggle()<CR>', { desc = "Toggle FTerm" })
 vim.keymap.set("t", "<C-j><C-k>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { desc = "Toggle FTerm" })
+vim.keymap.set("n", "<C-j><C-k>", '<CMD>lua require("FTerm").toggle()<CR>', { desc = "Toggle FTerm" })
+
+vim.keymap.set("n", "cp", function()
+  local path = vim.fn.expand("%:p")
+  local cwd = vim.fn.getcwd()
+  local relative_file_path = path:gsub(cwd .. "/", "")
+  vim.fn.setreg("+", relative_file_path)
+  vim.notify('Copied "' .. relative_file_path .. '" to the clipboard!')
+end, { desc = "Copy file path to cliboard" })
+
+vim.keymap.set(
+  "n",
+  "<Leader>gw",
+  "<CMD>Telescope live_grep default_text=" .. vim.fn.expand("<cword>") .. "<CR>",
+  { desc = "Live grep word under the cursor" }
+)
+
 vim.keymap.set("i", "jk", "<Esc>")
 
 vim.opt.clipboard = "unnamed"
