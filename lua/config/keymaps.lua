@@ -50,12 +50,9 @@ vim.keymap.set("n", "cp", function()
   vim.notify('Copied "' .. relative_file_path .. '" to the clipboard!')
 end, { desc = "Copy file path to cliboard" })
 
-vim.keymap.set(
-  "n",
-  "<Leader>gw",
-  "<CMD>Telescope live_grep default_text=" .. vim.fn.expand("<cword>") .. "<CR>",
-  { desc = "Live grep word under the cursor" }
-)
+vim.keymap.set("n", "<Leader>gw", function()
+  require("telescope.builtin").live_grep({ default_text = vim.fn.expand("<cword>") })
+end, { desc = "[Telescope] live_grep <cword>" })
 
 vim.keymap.set("i", "jk", "<Esc>")
 
