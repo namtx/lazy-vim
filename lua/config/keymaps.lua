@@ -32,6 +32,6 @@ vim.keymap.set("n", "<Leader>gw", function()
 end, { desc = "[Telescope] live_grep <cword>" })
 
 vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("n", "Y", "^yg_", { desc = "copy whole line without spaces" })
+vim.keymap.set("n", "cP", "^yg_", { desc = "copy whole line without spaces" })
 
 vim.opt.clipboard = "unnamed"
