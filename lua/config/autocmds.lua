@@ -11,8 +11,12 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     vim.keymap.set("n", "<Leader>r", function()
       local path = vim.fn.expand("%:p")
-      require("FTerm").run({ "g++", "--std=c++11", path, "-o", "a.out", "&&", "./a.out" })
+      require("FTerm").run({ "clang++", "--std=c++20", path, "-o", "a.out", "&&", "./a.out" })
     end, { desc = "[r]un current cpp file" })
+    vim.keymap.set("n", "<Leader>dd", function()
+      local path = vim.fn.expand("%:p")
+      require("FTerm").run({ "clang++", "--std=c++20", "--debug", path, "-o", "a.out" })
+    end, { desc = "Build current file for debugging" })
   end,
   pattern = {
     "cpp",
