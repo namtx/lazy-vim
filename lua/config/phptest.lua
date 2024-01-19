@@ -52,7 +52,7 @@ M.RunTestForCurrentFile = function(singleFunction)
     cmd = cmd .. " --filter " .. function_name
   end
 
-  require("FTerm").run({ "/usr/local/bin/kubectl", "exec", "-it", cmd })
+  require("FTerm").run({ "/usr/local/bin/kubectl", "exec", "-it", "-c", "fpm", cmd })
 end
 
 return M

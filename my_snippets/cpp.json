@@ -24,5 +24,25 @@
       "return nullptr;",
       "}();"
     ]
+  },
+  "for i": {
+    "prefix": "fori",
+    "body": [
+      "for (size_t i = 0; i < $1.size(); i++) {",
+      "}"
+    ]
+  },
+  "for auto": {
+    "prefix": "forauto",
+    "body": [
+      "for (auto $1: $2) {",
+      "}"
+    ]
+  },
+  "cout": {
+    "prefix": "cout",
+    "body": [
+      "cout << $1 << $2 << endl;"
+    ]
   }
 }
