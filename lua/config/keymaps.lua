@@ -19,7 +19,7 @@ vim.keymap.set(
 vim.keymap.set("t", "<C-j><C-k>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { desc = "Toggle FTerm" })
 vim.keymap.set("n", "<C-j><C-k>", '<CMD>lua require("FTerm").toggle()<CR>', { desc = "Toggle FTerm" })
 
-vim.keymap.set("n", "cp", function()
+vim.keymap.set("n", "yp", function()
   local path = vim.fn.expand("%:p")
   local cwd = vim.fn.getcwd()
   local relative_file_path = path:gsub(cwd .. "/", "")

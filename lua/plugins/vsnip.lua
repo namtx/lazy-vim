@@ -1,5 +1,6 @@
 return {
   "L3MON4D3/LuaSnip",
+  tag = "v2.2.0",
   dependencies = {
     "rafamadriz/friendly-snippets",
     config = function()

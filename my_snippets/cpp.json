@@ -14,6 +14,7 @@
     "prefix": "solution",
     "body": [
       "#include <iostream>",
+      "#include <vector>",
       "",
       "using namespace std;",
       "",
